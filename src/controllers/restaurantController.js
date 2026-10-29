@@ -6,6 +6,23 @@ const Restaurant = require("../models/Restaurant");
 const createRestaurant = async (req, res) => {
     try {
         const { name, description, cuisineTypes, address, phone, isActive } = req.body;
+        if (
+    cuisineTypes !== undefined &&
+    (!Array.isArray(cuisineTypes) ||
+        !cuisineTypes.every(item => typeof item === "string"))
+) {
+    return res.status(400).json({
+        success: false,
+        message: "cuisineTypes must be an array of strings"
+    });
+}
+
+if (isActive !== undefined && typeof isActive !== "boolean") {
+    return res.status(400).json({
+        success: false,
+        message: "isActive must be a boolean"
+    });
+}
 
         if (!name || !name.trim() || !address || !address.trim()) {
             return res.status(400).json({
