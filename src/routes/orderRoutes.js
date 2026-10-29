@@ -50,4 +50,4 @@ function authenticateToken(req, res, next) {
 router.post("/", authenticateToken, createOrder);
 router.get("/", authenticateToken, getMyOrders);
 
-module.exports = router;s
+module.exports = router;
