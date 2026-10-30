@@ -200,3 +200,32 @@ They keep configuration and private credentials outside the source code, reducin
 8. What should happen if MongoDB is unavailable?
 
 The application should report the connection failure safely and avoid starting the API server as though the database were ready. Database credentials should never be logged or returned to clients.
+
+## Assignment 3 – Menu Management APIs
+
+### Menu Item Features
+- Create a new menu item.
+- Get all menu items.
+- Get a menu item by ID.
+- Update a menu item.
+- Delete a menu item.
+- Associate menu items with restaurants using MongoDB ObjectId references.
+- Populate restaurant details when retrieving menu items.
+- Filter menu items by restaurant, category, and availability.
+- Sort menu items by price in ascending or descending order.
+- Support pagination with page and limit query parameters.
+- Validate menu item data, including price and restaurant references.
+
+### API Base URL
+`http://localhost:5000/api/menu-items`
+
+### Query Parameters
+- `restaurantId` – Filter by restaurant.
+- `category` – Filter by category.
+- `isAvailable` – Filter by availability (`true` or `false`).
+- `sort` – Sort using `price_asc` or `price_desc`.
+- `page` – Select the page number.
+- `limit` – Set the number of items per page (maximum 50).
+
+### Testing
+Menu item APIs were tested using Postman, including CRUD operations, filtering, sorting, pagination, and validation.
